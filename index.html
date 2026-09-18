@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>India UG Scholarships | Mid-Sept 2026</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --card: #121a2b;
+    --line: #243049;
+    --text: #e8eefc;
+    --muted: #9aa8c7;
+    --accent: #5eead4;
+    --warn: #fbbf24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: radial-gradient(1200px 600px at 10% -10%, #1a2744 0%, var(--bg) 55%);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    padding: 48px 20px 24px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; }
+  .sub { color: var(--muted); max-width: 720px; }
+  .note {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #101827;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .toolbar {
+    max-width: 980px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  input {
+    flex: 1;
+    min-width: 220px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  main {
+    max-width: 980px;
+    margin: 0 auto 64px;
+    padding: 0 20px;
+    display: grid;
+    gap: 16px;
+  }
+  article {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+  }
+  article h2 { margin: 0 0 8px; font-size: 1.25rem; }
+  .meta { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0 12px; }
+  .chip {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: #0f2a28;
+    border: 1px solid #1d4e48;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+  .chip.deadline { color: var(--warn); background: #2a220d; border-color: #5b4714; }
+  p { margin: 0 0 8px; }
+  .elig { color: #c9d4ee; }
+  footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Undergraduate scholarships in India</h1>
+  <p class="sub">Schemes that were newly reported, extended, or opened for UG students in the week of 11–18 September 2026. Always confirm amounts and dates on the official portal before applying.</p>
+  <p class="note">Compiled on 18 September 2026 from public education portals and news reports. Deadlines move often. This is an unofficial tracker.</p>
+</header>
+<div class="toolbar">
+  <input id="q" type="search" placeholder="Filter by name, amount, state or eligibility…" />
+</div>
+<main id="list"></main>
+<footer>
+  Source notes: National Scholarship Portal, SBI Asha, Reliance Foundation, Buddy4Study alerts, Shiksha, and state scholarship pages. Official apply links: <a href="https://scholarships.gov.in" target="_blank" rel="noopener">scholarships.gov.in</a>, <a href="https://www.sbiashascholarship.co.in" target="_blank" rel="noopener">sbiashascholarship.co.in</a>, <a href="https://www.scholarships.reliancefoundation.org" target="_blank" rel="noopener">Reliance Foundation</a>.
+</footer>
+<script>
+const data = [
+  {
+    name: "SBI Platinum Jubilee Asha Scholarship 2026-27 (Undergraduate track)",
+    amount: "Up to ₹75,000 per year (UG track; other tracks up to ₹15–20 lakh)",
+    dates: "Open 22 Jul 2026 · extended last date 19 Sep 2026",
+    eligibility: "Indian students in an eligible UG course at a Top 300 NIRF (Overall) or NAAC A / A+ institution. Family income typically up to ₹6 lakh for college tracks. One track only. 5% seats for persons with benchmark disabilities."
+  },
+  {
+    name: "Reliance Foundation Undergraduate Scholarships 2026-27",
+    amount: "Up to ₹2,00,000 over the duration of the UG degree",
+    dates: "Applications open; last date 5 Oct 2026",
+    eligibility: "Resident Indian citizen; first year of a regular full-time UG degree (2026-27) in any stream; Class 12 with at least 60%; household income under ₹15 lakh (preference below ₹2.5 lakh); aptitude test mandatory. Girls and specially-abled students encouraged."
+  },
+  {
+    name: "Central Sector Scheme of Scholarship (CSSS / PM-USP) 2026-27",
+    amount: "₹12,000 per year for first 3 years of graduation; ₹20,000 in later professional years",
+    dates: "NSP open from 1 Jun 2026; student deadline reported as 30 Sep 2026 (some summaries also cite 31 Oct — check NSP)",
+    eligibility: "Class 12 at or above the 80th percentile of the respective board; annual family income up to ₹4.5 lakh; enrolled in a recognised college/university. Apply on scholarships.gov.in after OTR."
+  },
+  {
+    name: "Ishan Uday Special Scholarship for NER (UG) 2026-27",
+    amount: "About ₹8,000 per month (10 months/year) as per UGC scheme",
+    dates: "Applications reported open from 16 Sep 2026 until 31 Oct 2026 on NSP",
+    eligibility: "Students from the North Eastern Region admitted to a recognised UG first-year programme. Family income and domicile conditions as notified by UGC/NSP. Confirm scheme status on scholarships.gov.in."
+  },
+  {
+    name: "UP Scholarship 2026-27 — Dashmottar / Post-Matric (UG)",
+    amount: "Varies by category, course group and hosteller/day-scholar status (state post-matric rates)",
+    dates: "Post-matric / Dashmottar applications started 15 Sep 2026; follow scholarship.up.gov.in calendar",
+    eligibility: "Uttar Pradesh resident enrolled in a recognised UG (or higher) course. Income caps differ by category (commonly ₹2–2.5 lakh). Aadhaar-linked bank account and OTR required."
+  },
+  {
+    name: "Digital Gujarat Post-Matric Scholarships 2026-27",
+    amount: "As per Gujarat post-matric scheme (tuition + maintenance; category-wise)",
+    dates: "Reported open as of 18 Sep 2026 on Digital Gujarat portal",
+    eligibility: "Gujarat domicile students in post-matric courses including UG. Category, income and institute recognition rules apply on digitalgujarat.gov.in."
+  },
+  {
+    name: "Sitaram Jindal Foundation Scholarship 2026-27",
+    amount: "Merit-cum-means award; amount depends on course and year (check foundation form)",
+    dates: "Highlighted in scholarship alerts on 18 Sep 2026; apply on the foundation site",
+    eligibility: "Financially disadvantaged meritorious students; open across school to higher education including UG. Income and marks conditions set by Sitaram Jindal Foundation, Bengaluru."
+  },
+  {
+    name: "RBL Bank Shiksha Scholarship 2026-27",
+    amount: "Up to ₹20,000 per year",
+    dates: "Last date 26 Sep 2026 (Vidyasaarathi)",
+    eligibility: "Full-time 3-year UG courses; min 60% in Class 10 and 12; family income under ₹4 lakh; Indian residents."
+  },
+  {
+    name: "Bharathi Cement Scholarship 2026-27 (UG / BE-BTech)",
+    amount: "Up to ₹20,000 (general UG) or ₹35,000 (new BE/BTech) per year",
+    dates: "Last date 30 Sep 2026 on Vidyasaarathi",
+    eligibility: "Indian students in eligible UG / engineering courses; income and academic rules as on the Vidyasaarathi scheme page."
+  },
+  {
+    name: "HDFC Parivartan ECSS Programme 2026-27 (UG track)",
+    amount: "Need-based support up to about ₹75,000 depending on course slab",
+    dates: "Open until 31 Oct 2026",
+    eligibility: "Students from school through UG/PG including professional courses; merit-cum-need. Apply via Buddy4Study / Parivartan ECSS form."
+  },
+  {
+    name: "NSP Post-Matric schemes for SC / ST / OBC / Minorities / Disabilities (UG)",
+    amount: "Tuition reimbursement + maintenance; scheme-wise (minorities often fee up to ₹10,000 + allowance)",
+    dates: "Most post-matric student applications close 31 Oct 2026",
+    eligibility: "Enrolled in recognised post-matric UG programmes. Income and category certificates as per each ministry scheme. One merit-based plus eligible welfare schemes allowed from AY 2026-27."
+  },
+  {
+    name: "Swami Dayanand India Scholarship 2026-27",
+    amount: "Up to ₹50,000 per academic year",
+    dates: "Deadline 31 Oct 2026",
+    eligibility: "First year of listed professional UG courses (B.Tech/B.E., MBBS, BDS, Nursing, etc.); ~80% in Class 12; family income ₹12 lakh or less."
+  }
+];
+
+const list = document.getElementById('list');
+const q = document.getElementById('q');
+
+function render(filter = '') {
+  const f = filter.trim().toLowerCase();
+  list.innerHTML = '';
+  data.filter(s => !f || JSON.stringify(s).toLowerCase().includes(f)).forEach(s => {
+    const el = document.createElement('article');
+    el.innerHTML = `<h2>${s.name}</h2>
+      <div class="meta">
+        <span class="chip">${s.amount}</span>
+        <span class="chip deadline">${s.dates}</span>
+      </div>
+      <p class="elig"><strong>Eligibility:</strong> ${s.eligibility}</p>`;
+    list.appendChild(el);
+  });
+}
+q.addEventListener('input', e => render(e.target.value));
+render();
+</script>
+</body>
+</html>

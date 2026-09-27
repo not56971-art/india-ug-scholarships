@@ -1,11 +1,11 @@
-# India UG Scholarships (Sept 2026 snapshot)
+# India UG Scholarships
 
-Static page listing undergraduate scholarships in India that were newly reported, opened, or extended around 11–18 September 2026.
+Static listing of undergraduate scholarships in India highlighted around 20–27 September 2026.
 
-## GitHub Pages
+## Live page
 
-1. Open the repository **Settings → Pages**.
-2. Source: **Deploy from a branch**.
-3. Branch: **main** / folder: **/ (root)**.
-4. After a minute the site will be at:
-   `https://not56971-art.github.io/india-ug-scholarships/`
+After enabling GitHub Pages (Settings → Pages → Deploy from branch `main` / root):
+
+https://not56971-art.github.io/india-ug-scholarships/
+
+Repo: https://github.com/not56971-art/india-ug-scholarships
